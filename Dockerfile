@@ -7,6 +7,7 @@ MAINTAINER brunetto ziosi <brunetto.ziosi@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 ENV STARLAB_DOWNLOAD https://www.dropbox.com/s/tzwimr7e9hrmpm1/starlabDockerPublic.tar.gz
+ENV STARLAB_FILE starlabDockerPublic.tar.gz
 
 # This has to be set by hand and MUST be the same of the host
 ##############
@@ -64,7 +65,7 @@ RUN ldconfig /usr/local/cuda-site/lib64
 # Install StarLab
 # Sapporo
 RUN wget --no-check-certificate $STARLAB_DOWNLOAD
-RUN tar -xvf starlabDockerPublic.tar.gz && rm starlabDockerPublic.tar.gz 
+RUN tar -xvf $STARLAB_FILE && rm $STARLAB_FILE 
 RUN cp -r starlab starlab-no-GPU
 RUN mv starlab starlab-GPU
 RUN cd sapporo/ && make && bash compile.sh && cd ../
