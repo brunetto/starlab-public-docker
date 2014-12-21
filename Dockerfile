@@ -76,7 +76,7 @@ RUN mv /starlab-GPU/usr/bin slbin && rm -rf /starlab-GPU
 # Without GPU
 RUN cd /starlab-no-GPU/ && ./configure --with-f77=no --with-grape=no \
                 && make && make install && cd ../
-RUN mv /starlab/usr/bin slbin-noGPU && rm -rf /starlab--no-GPU
+RUN mv /starlab-no-GPU/usr/bin slbin-no-GPU && rm -rf /starlab-no-GPU
 
 # Default command.
 ENTRYPOINT ["/bin/bash"]
